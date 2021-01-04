@@ -1,53 +1,47 @@
 #!/usr/bin/env ruby
-puts 'Hello World'
+puts 'Welcome to the Tic-Tac-Toe game!'
 
-     TIC_TOE_TAC
-Tic-tac-toe is a fun game that you can play any time 
-and anywhere as long as you have a piece of paper, a pencil,
- and an opponent. Tic-tac-toe is a zero sum game, which means that
- 
-  if both players are playing their best, that neither player will win.
-   However, if you learn how to play tic-tac-toe and master some simple
-    strategies, then you will be able to not only play, but to win the majority of
-     the time. If you want to know how to play tic-tac-toe, then see Step 1 to get started.
-     
-   #step 1
-Draw the board. First, you have to draw the board, which is 
-made up of a 3 x 3 grid of squares. This means it has three rows of
- three squares. Some people play with a 4 x 4 grid, but that is for more advanced players, 
-and we will focus on the 3 x 3 grid here.
-#step 3
-Have the first player go first. Though traditionally, the
- first player goes with "X", you can allow the first player to 
- decide whether he wants to go with "X"s or "O"s. These symbols will be
-  placed on the table, in the attempt to have three of them in a row. 
-  If you are going first, then the best move you can make is to move into 
-  the center. This will maximize your chances of winning, since you will 
-  be able to create a row of three "X"s or "O"s in more combinations (4) this 
-way than if you chose a different square.
-#step 4
-Have the second player go second. After the first player goes, 
-then the second player should put down his symbol, which will be 
-different from the symbol of the first player. The second player can
- either try to block the first player from creating a row of three, 
- or focus on creating his or her own row of three.
- Ideally, the player can do both.
+# Get Player1 name
+ puts 'Enter player 1 name'
+ player1 = gets.chomp
 
- step5
- Keep alternating moves until one of the players has 
- drawn a row of three symbols or until no one can win. 
- The first player to draw three of his or her symbols in a row,
-  whether it is horizontal, vertical, or diagonal, has won tic-tac-toe.
-   will be declare  and prompted as
-   # puts 'you win on the board'
-   otherwise
-   puts  'you lose on the board for other player'
-   However, if both players are playing with optimal strategy, then there is a good 
-   chance that no one will win because you will have blocked one another opportunities to create a row of three
-   # puts 'Draw'
- step6
- Keep practicing. Contrary to popular belief, tic-tac-toe is not purely a game of chance.
-  There are some strategies that can help you optimize your skills and to become an expert 
-  tic-tac-toe player. If you keep playing, you will soon learn all of the tricks to making 
-  sure you win every time -- or, at least, you will learn the tricks to make sure you 
- never lose. Its like 0's and x's.
+# Get Player2 name
+ puts 'Enter player 2 name'
+ player2 = gets.chomp
+
+# Tell Player1 to choose
+ puts 'Please select X or O'
+ player1_choice = gets.chomp
+
+# Assign the available choice to Player2
+ player2_choice = player1_choice == 'X' ? 'O' : 'X'
+
+# Create a variable for all available positions
+ available_positions = (1..9)
+
+# Start a loop to check if game is on, then perform the following steps
+ game_on = true
+ while game_on
+      
+# First, display an empty board to show players available positions
+# Ask Player1 for first move position
+ puts "#{player1} please indicate your desired move position"
+      
+# Gets the position player has chosen and removes it from the possible positions for the next player
+ player1_position = gets.chomp.to_i
+      
+# Checks if position is valid and updates the available positions
+# Display the game board with the updated position for Player2
+# Repeats same process for Player2
+      
+# If any of the two players meet the 'WIN condition' (horizontal, vertical or diagonal alignment), display WIN
+      
+# if WIN or DRAW
+ if WIN
+ Print the winning player
+ else
+ Print draw
+ end
+ game_on = false
+ end
+ end
