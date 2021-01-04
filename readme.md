@@ -46,7 +46,7 @@ cd Tic_Toe_Tac
 
 👤 Taiwo Adetona
 
-- Github: [@otaiwo2](https://github.com/taiwo2)
+- Github: [@taiwo2](https://github.com/taiwo2)
 
 - LinkedIn: [Taiwo Adetona](https://www.linkedin.com/in/taiwo-waliyullahi-adetona-988898180/)
 
