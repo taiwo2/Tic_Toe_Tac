@@ -1,8 +1,29 @@
 ## TIC TAC TOE GAME
 
-</h1>This project is about learning the concept of OOP using the TicTacToe game.
-This is the initial repository setup
-</h1>
+About the Project
+​
+This project is to build a Tic Tac Toe game which can be played on the command line.
+Two human players can play against each other and the board is displayed in between turns.
+We built this project following some requirements: 
+​
+- The main.rb file should be responsible for user interaction, and this is the only place where puts/print and get.chomp can be used
+- Comply with [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) rule
+- Set the permission for reading and writing with attr_accessor, attr_reader properly to Classes
+- Include the validation for user's inputs to correspond to unpredictable behavior from players
+​
+​
+## Table of Contents
+* [About the Project](#about-the-project)
+* [Built With](#built-with)
+* [Live Demo](#live-demo)
+* [Getting Started](#getting-started)
+* [About Tic Tac Toe](#about-tic-tac-toe)
+* [How to Play](#how-to-play)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [Acknowlegments](#acknowlegments)
+* [Show your support](#show-your-support)
+* [License]
 
 ## Built With
 

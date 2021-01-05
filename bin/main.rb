@@ -1,47 +1,37 @@
 #!/usr/bin/env ruby
-puts 'Welcome to the Tic-Tac-Toe game!'
 
-# Get Player1 name
- puts 'Enter player 1 name'
- player1 = gets.chomp
+puts 'Welcome to Tic Tac Toe'
+puts 'Please Enter Your Name(First Player): '
+player1 = gets.chomp
+# save the name in player1 variable
+# after entering the name we will agign the sign to player
+puts "#{player1} your symbol is X "
+puts 'Please Enter Your Name(Second Player): '
+player2 = gets.chomp
+# save the name in player2 variable
+# after entering the name we will assign the sign to player
+puts "#{player2} your symbol is O "
 
-# Get Player2 name
- puts 'Enter player 2 name'
- player2 = gets.chomp
+puts '-------------'
+puts '| 1 | 2 | 3 |'
+puts '-------------'
+puts '| 4 | 5 | 6 |'
+puts '-------------'
+puts '| 7 | 8 | 9 |'
+puts '-------------'
 
-# Tell Player1 to choose
- puts 'Please select X or O'
- player1_choice = gets.chomp
+puts "It is your move #{player1}, Select the position"
+# we will save the position and sign
+# we will update the board and display it
+# we will check the conditions
 
-# Assign the available choice to Player2
- player2_choice = player1_choice == 'X' ? 'O' : 'X'
+puts "It is your move #{player2}, Select the position"
+# we will save the position and sign
+# we will update the board and display it
+# we will check the conditions
 
-# Create a variable for all available positions
- available_positions = (1..9)
-
-# Start a loop to check if game is on, then perform the following steps
- game_on = true
- while game_on
-      
-# First, display an empty board to show players available positions
-# Ask Player1 for first move position
- puts "#{player1} please indicate your desired move position"
-      
-# Gets the position player has chosen and removes it from the possible positions for the next player
- player1_position = gets.chomp.to_i
-      
-# Checks if position is valid and updates the available positions
-# Display the game board with the updated position for Player2
-# Repeats same process for Player2
-      
-# If any of the two players meet the 'WIN condition' (horizontal, vertical or diagonal alignment), display WIN
-      
-# if WIN or DRAW
- if WIN
- Print the winning player
- else
- Print draw
- end
- game_on = false
- end
- end
+puts "player 'e.g player1' is the winner! or the game is draw"
+puts 'do you want to rematch(y/n)? '
+rematch = gets.chomp
+puts rematch
+# proceed depending on the user input either to terminate the game or rematch
