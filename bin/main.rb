@@ -30,6 +30,6 @@ loop do
 
     new_game.display_board(game_board.board)
     current_player = player1.switch_player(current_player, player2)
-  end
-  break if new_game.player_response == 'q'
+end
+   break if new_game.player_response == 'q'
 end 
