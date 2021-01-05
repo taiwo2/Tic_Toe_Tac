@@ -22,7 +22,7 @@ class Game
 
   def display_instruction
     display_title
-    puts "      by the Awesome Dev: David Bassey\n\n"
+    puts "      by the Awesome Dev: Taiwo & John \n\n"
     puts ''
     puts 'It is played on a 3x3 grid.'
     puts 'Players take turns placing their Mark, X or O, on an open square in the grid.'
