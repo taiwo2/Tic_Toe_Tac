@@ -1,61 +1,76 @@
 #!/usr/bin/env ruby
 
-class TicTacToe
-  def initialize
-    greetings
-    game_loop
+# user instructions
+puts 'Welcome to **Tic-Tac-toe**'
+puts 'In this game whichever player gets the first similar letters in a row, column or diagonal Wins!.'
+puts "There are only two letters to pick from 'X' and 'O'."
+puts 'At the begining of the game, each player will choose which letter they will be playing with,'
+puts 'once one player has selected a letter, the otherone is assigned the other letter automatically.'
+puts "Note: Player names are optional (just press 'Enter' to continue)"
+puts ''
+puts ''
+
+# Get user input and set it to a variable
+p 'Enter name of player 1 or press Enter to skip'
+input1 = gets.chomp
+input1 == '' ? 'player 1' : input1
+p 'enter a letter to play with'
+player_1_letter = gets.chomp
+p "#{input1} chose #{player_1_letter}"
+
+p 'Enter name of player 2 or press Enter to skip'
+input2 = gets.chomp
+input2 == '' ? 'player 2' : input2
+player_2_letter = 'O' if player_1_letter == 'X'
+player_2_letter = 'X' if player_1_letter == 'O'
+p "#{input2} will be playin with #{player_2_letter}"
+
+puts ''
+
+p 'The game will start ...'
+
+puts ''
+
+game_on = true
+
+player = input1 # if i.even?
+# player = input2 if i.odd?
+
+while game_on # Loop for each move
+
+  p "#{player} enter Horizontal position  with a letter "
+  gets.chomp
+  p "#{player} enter Vertical position  with a number "
+  gets.chomp
+
+  valid = true
+  unless valid # checks if input from user is valid
+    puts "Error, input invalid. Please enter 'X' or 'O'"
+    next
   end
-  # when the game is started we greet the players
 
-  def greetings
-    puts 'Hello! welcome to TIC-TAC-TOC game'
-    puts '  |  |  '
-    puts '--------'
-    puts '  |  |  '
-    puts '--------'
-    puts '  |  |  '
-    puts 'This is a game played by two players "X" & "O"'
-    puts 'Let start the game!'
-    puts 'Enter player-one name:'
-    player1 = gets.chomp
-    puts 'What is player_two name:'
-    player2 = gets.chomp
-    puts " Hi #{player1} & #{player2}"
-  end
-  #  After greeting the players we start the game
+  x1 = [%w[x o x], %w[x o x], %w[x o x]]
 
-  def start_game
-    # game logic
+  p '      1   2   3  '
+  p '    -------------'
+  p "  A | #{x1[0][0]} | #{x1[0][1]} | #{x1[0][2]} |"
+  p '    -------------'
+  p "  B | #{x1[1][0]} | #{x1[2][1]} | #{x1[0][2]} |"
+  p '    -------------'
+  p "  C | #{x1[2][1]} | #{x1[2][1]} | #{x1[2][2]} |"
+  p '    -------------'
 
-    puts 'game tells which player turn it is'
-    puts 'game asks player to select from available moves'
-    puts 'game informs player if selected move is invalid'
-    puts 'game print board after each player move'
-    puts 'game informs player if selected move is a winning move'
-    puts 'game informs player if selected move is a draw move'
-    puts "game repeats all actions for next player's move"
+  draw = false
+  if draw # Condition for when game is draw
+    puts 'this is a Draw'
+    game_on = false
   end
 
-  def game_loop
-    start_game
-    play_again
+  winner = true
+
+  if winner
+    puts 'Player 1/2 is the winner of this round'
+    game_on = false # terminates when we have a winner
   end
 
-  # we ask if the user wi=ould want to play again
-
-  def play_again
-    result = 'Y, N'
-    until result.include?('Y,N')
-      puts 'Would you like to play again? (Y/N): '
-      result = gets.chomp.upcase
-    end
-    case result
-    when 'Y'
-      start_game
-    when 'N'
-      puts 'Thank you for playing!'
-    end
-  end
 end
-ttt = TicTacToe.new
-ttt.initialize
