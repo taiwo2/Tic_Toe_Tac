@@ -30,7 +30,7 @@ class TicTacToe
     puts 'game tells which player turn it is'
     puts 'game asks player to select from available moves'
     puts 'game informs player if selected move is invalid'
-    puts 'game displays board after player move'
+    puts 'game print board after each player move'
     puts 'game informs player if selected move is a winning move'
     puts 'game informs player if selected move is a draw move'
     puts "game repeats all actions for next player's move"
