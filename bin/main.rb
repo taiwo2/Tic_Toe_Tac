@@ -44,8 +44,8 @@ class TicTacToe
   # we ask if the user wi=ould want to play again
 
   def play_again
-    result = ''
-    until result == 'Y' || result == 'N'
+    result = 'Y, N'
+    until result.include?('Y,N')
       puts 'Would you like to play again? (Y/N): '
       result = gets.chomp.upcase
     end
