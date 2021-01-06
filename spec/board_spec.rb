@@ -1,7 +1,7 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 require_relative '../lib/board'
 
-describe Board do
+RSpec.describe Board do
   let(:board) { Board.new }
   let(:player1) { Player.new('David', 'X') }
   let(:player2) { Player.new('Oyinda', 'O') }
