@@ -71,7 +71,7 @@ If all 9 squares are filled and neither player can take 3 grids, the game will b
 2. cd into the folder
 3. install rspec by gem install rspec
 4. Run rspec .
-5. 15 examples, 0 failures will be output.
+5. 13 examples, 0 failures will be output.
 
 ​
 ## Contributing
