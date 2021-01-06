@@ -95,8 +95,6 @@ class Game
   end
 end
 
-
-# METHODS
 new_game = Game.new
 new_game.display_instruction
 abort if new_game.player_response == 'q'
