@@ -66,6 +66,13 @@ If all 9 squares are filled and neither player can take 3 grids, the game will b
 7. If neither player can take 3 grids until the board is filled with players' symbols, the game is a tie
 8. If you want to play again, enter any key, otherwise, enter 'q' to quit the game
 
+## How to Test
+1. Clone the repo to your local folder
+2. cd into the folder
+3. install rspec by gem install rspec
+4. Run rspec .
+5. 15 examples, 0 failures will be output.
+
 ​
 ## Contributing
 ​
