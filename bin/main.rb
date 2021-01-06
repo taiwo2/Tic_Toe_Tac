@@ -4,7 +4,6 @@ require_relative '../lib/player'
 require_relative '../lib/board'
 require_relative '../lib/game'
 
-# METHODS
 new_game = Game.new
 new_game.display_instruction
 abort if new_game.player_response == 'q'
