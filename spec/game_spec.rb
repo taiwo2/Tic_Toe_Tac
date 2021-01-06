@@ -1,5 +1,5 @@
 require 'spec_helper'
-require_relative '../lib/game'
+require_relative '../bin/main'
 
 describe Game do
   let(:new_game) { Game.new }
