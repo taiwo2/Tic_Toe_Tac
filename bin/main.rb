@@ -1,37 +1,125 @@
 #!/usr/bin/env ruby
 
-puts 'Welcome to Tic Tac Toe'
-puts 'Please Enter Your Name(First Player): '
-player1 = gets.chomp
-# save the name in player1 variable
-# after entering the name we will agign the sign to player
-puts "#{player1} your symbol is X "
-puts 'Please Enter Your Name(Second Player): '
-player2 = gets.chomp
-# save the name in player2 variable
-# after entering the name we will assign the sign to player
-puts "#{player2} your symbol is O "
+require_relative '../lib/player'
+require_relative '../lib/board'
 
-puts '-------------'
-puts '| 1 | 2 | 3 |'
-puts '-------------'
-puts '| 4 | 5 | 6 |'
-puts '-------------'
-puts '| 7 | 8 | 9 |'
-puts '-------------'
+class Game
+  def display_board(board)
+    puts ''
+    puts " #{board[0]} | #{board[1]} | #{board[2]} "
+    puts '--- --- ---'
+    puts " #{board[3]} | #{board[4]} | #{board[5]} "
+    puts '--- --- ---'
+    puts " #{board[6]} | #{board[7]} | #{board[8]} "
+    puts ''
+  end
 
-puts "It is your move #{player1}, Select the position"
-# we will save the position and sign
-# we will update the board and display it
-# we will check the conditions
+  def display_title
+    puts '
+  _______ _        _______           _______
+|__   ___ |      |__   __|         |__   __|
+    | |   _  ___     | | __ _  ___     | | ___   ___
+    | |  | |/ __|    | |/ _` |/ __|    | |/ _ \ / _ \
+    | |  | | (__     | | (_| | (__     | | (_) |  __/
+    |_|  |_|\___|    |_|\__,_|\___|    |_|\___/ \___|
+  '
+  end
 
-puts "It is your move #{player2}, Select the position"
-# we will save the position and sign
-# we will update the board and display it
-# we will check the conditions
+  def display_instruction
+    display_title
+    puts "      by the Awesome Dev: Taiwo & John \n\n"
+    puts ''
+    puts 'It is played on a 3x3 grid.'
+    puts 'Players take turns placing their Mark, X or O, on an open square in the grid.'
+    puts ''
+    puts 'The first player taking 3 grids vertically, horizontally or diagonally will be the winner.'
+    puts 'If all 9 squares are filled and neither player can take 3 grids, the game will be draw.'
+    puts ''
+  end
 
-puts "player 'e.g player1' is the winner! or the game is draw"
-puts 'do you want to rematch(y/n)? '
-rematch = gets.chomp
-puts rematch
-# proceed depending on the user input either to terminate the game or rematch
+  def validate_name(name)
+    loop do
+      break unless name.strip == ''
+
+      print 'Blank can not be used . please enter your name: '
+      name = gets.chomp
+    end
+    name
+  end
+
+  def player_name
+    puts 'please enter your name player 1:'
+    player1 = gets.chomp
+    player1 = validate_name(player1)
+    puts 'please enter your name player 2'
+    player2 = gets.chomp
+    player2 = validate_name(player2)
+    [player1, player2]
+  end
+
+  def validate_position(position, board)
+    loop do
+      break if (1..9).include?(position) && !board[position - 1].is_a?(String)
+
+      print 'Please enter valid number from 1 to 9: ' unless (1..9).include?(position)
+      print "It's already taken. Please choose another position: " if board[position - 1].is_a?(String)
+      position = gets.chomp.to_i
+    end
+    position
+  end
+
+  def player_response
+    puts "enter any key and press enter to start Tic Tac Toe game, to quit game enter 'q"
+    gets.chomp.downcase
+  end
+
+  def display_name_symbol(player1, player2)
+    puts "#{player1.name} will be using '#{player1.symbol}'"
+    puts "#{player2.name} will be using '#{player2.symbol}'"
+  end
+
+  def game_status?(game_board, current_player)
+    if game_board.win?
+      display_board(game_board.board)
+      puts 'Congratulations!'
+      puts "#{current_player.name} is the winner!"
+      puts ''
+      return true
+    elsif game_board.draw?
+      display_board(game_board.board)
+      puts ' The game is a tie'
+      puts ''
+      return true
+    end
+    false
+  end
+end
+
+new_game = Game.new
+new_game.display_instruction
+abort if new_game.player_response == 'q'
+
+loop do
+  player1, player2 = new_game.player_name
+  game_board = Board.new
+  player1 = Player.new(player1, 'X')
+  player2 = Player.new(player2, 'O')
+
+  new_game.display_name_symbol(player1, player2)
+  new_game.display_board(game_board.board)
+  current_player = player1
+
+  loop do
+    puts "#{current_player.symbol} #{current_player.name}: "
+    puts 'which position do you want to take?:'
+    position = gets.chomp.to_i
+    position = new_game.validate_position(position, game_board.board)
+    game_board.update_board(current_player, position, player1, player2)
+
+    break if new_game.game_status?(game_board, current_player)
+
+    new_game.display_board(game_board.board)
+    current_player = player1.switch_player(current_player, player2)
+  end
+  break if new_game.player_response == 'q'
+end
