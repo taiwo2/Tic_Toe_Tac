@@ -29,11 +29,6 @@ We built this project following some requirements:
 ## Built With
 * [Ruby](https://www.ruby-lang.org/en/)
 
-## Live Demo
-
-[Live demo]()
-​
-​
 ## Getting Started
 ​
 To get a local copy up and running follow these simple example steps.
@@ -84,16 +79,6 @@ Feel free to check the [issues page](../../issues).
 5. Open a Pull Request
 
 * [License]
-
-## Built With
-
-Ruby
-
-Visual code
-
-## Live Demo
-
-[Live Demo Link]()
 
 ## Prerequisites
 
