@@ -1,4 +1,3 @@
-# Class for Board
 class Board
   attr_accessor :board
 
