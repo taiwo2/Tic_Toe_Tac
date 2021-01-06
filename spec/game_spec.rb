@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require_relative '../lib/game'
 require_relative '../lib/board'
- require_relative '../lib/player'
+require_relative '../lib/player'
 
 describe Game do
   let(:new_game) { Game.new }
