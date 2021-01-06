@@ -59,7 +59,6 @@ class Game
       print 'Please enter valid number from 1 to 9: ' unless (1..9).include?(position)
       print "It's already taken. Please choose another position: " if board[position - 1].is_a?(String)
       position = gets.chomp.to_i
-      
     end
     position
   end
