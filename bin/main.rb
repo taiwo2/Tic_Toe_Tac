@@ -3,7 +3,6 @@
 require_relative '../lib/player'
 require_relative '../lib/board'
 
-
 class Game
   def display_board(board)
     puts ''
