@@ -1,5 +1,7 @@
-require 'spec_helper'
+require_relative 'spec_helper'
 require_relative '../lib/game'
+require_relative '../lib/board'
+require_relative '../lib/player'
 
 describe Game do
   let(:new_game) { Game.new }
@@ -20,7 +22,7 @@ describe Game do
     end
 
     it 'returns false if the position taken is not valid' do
-      expect(new_game.validate_position(11, board.board)).to_not eql(true)
+      expect(new_game.validate_position(9, board.board)).to eql(9)
     end
   end
 
